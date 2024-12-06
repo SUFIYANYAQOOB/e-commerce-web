@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  .products, .cart {
+    margin: auto;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .products h1, .cart h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .product, .cart-item {
+    background-color: #ccc;
+    margin-bottom: 20px;
+    width: 210px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    /* display: flex;
+    align-items: center; */
+    text-align: center;
+    gap: 50px;
+  }
+
+  .product img, .cart-item img {
+    margin-top: 20px;
+    width: 200px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+
+  .product-info, .cart-info {
+    flex: 1;
+    margin-left: 15px;
+  }
+
+  .product-info h2, .cart-info h2 {
+    font-size: 18px;
+    margin: 0 0 5px;
+  }
+
+  .price {
+    font-weight: bold;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+<body>
+    
+    <div id="cart-container">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+    </div> 
+
+
+    <script>
+const cartContainer = document.getElementById('cart-items');
+
+// Retrieve the cart items from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Check if the cart is empty
+if (cart.length === 0) {
+  cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+} 
+
+else {
+  // Iterate through the cart items and display them
+  cart.forEach((product) => {
+    // Create a container for each product
+    const productDiv = document.createElement('div');
+        productDiv.classList.add('cart-item');
+        
+        // Add product details to the container
+        productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" width="100">
+        <h3>${product.name}</h3>
+        <p>Price: ${product.price}</p>
+        `;
+        // Append the product container to the cart
+        cartContainer.appendChild(productDiv);
+      });
+}
+localStorage.clear();
+    </script>
+</body>
+</html>

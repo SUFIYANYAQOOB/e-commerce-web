@@ -1,0 +1,42 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.h2 ,h2{
+    margin-left: 600px;
+    margin-top: 20px;
+}
+.input_field{
+    background-color: aqua;
+    background: transparent;
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0,0,0,2);
+    margin-top: 20px;
+margin-left: 35%;
+width: 400px;
+height: 420px;
+border: 2px solid black;
+border-radius: 40px;
+}
+
+.input_field input{
+    margin-top: 20px;
+    width: 250px;
+    padding: 15px;
+    border-radius: 20px;
+    margin-left: 55px;
+margin-top: 30px;
+}
+.input_field button{
+    width: 280px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 55px;
+    margin-top: 30px;
+}
+.input_field,input::placeholder{
+    color: black;
+}
+.input_field,input{
+    color: black;
+}
